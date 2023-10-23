@@ -13,13 +13,14 @@ const BookShow = ({ book, onEdit, onDelete }) => {
     setShowEdit(!showEdit);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (id, newTitle) => {
+    onEdit(id, newTitle);
     setShowEdit(false);
   };
 
   let content = <h3>{book.title}</h3>;
   if (showEdit) {
-    content = <BookEdit onSubmit={handleSubmit} onEdit={onEdit} book={book} />;
+    content = <BookEdit onSubmit={handleSubmit} book={book} />;
   }
 
   return (
