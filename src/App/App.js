@@ -31,6 +31,7 @@ const App = () => {
 
   return (
     <div className="app">
+      <h1>Reading List</h1>
       <BookList onEdit={editBookById} onDelete={deleteBookById} books={books} />
       <BookCreate onCreate={createBook} />
     </div>
