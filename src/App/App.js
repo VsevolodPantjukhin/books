@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import BookCreate from '../components/BookCreate/BookCreate';
@@ -11,6 +11,10 @@ const App = () => {
     const response = await axios.get('http://localhost:3001/books');
     setBooks(response.data);
   };
+
+  useEffect(() => {
+    fetchBooks();
+  }, []);
 
   const deleteBookById = (id) => {
     setBooks(
