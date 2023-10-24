@@ -7,6 +7,11 @@ import BookList from '../components/BookList/BookList';
 const App = () => {
   const [books, setBooks] = useState([]);
 
+  const fetchBooks = async () => {
+    const response = await axios.get('http://localhost:3001/books');
+    setBooks(response.data);
+  };
+
   const deleteBookById = (id) => {
     setBooks(
       books.filter((book) => {
